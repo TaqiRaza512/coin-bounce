@@ -17,37 +17,36 @@ router.post('/register',authController.register);
 router.post('/login',authController.login);
 
 // logout
-router.get('/logout',auth,authController.logout);
+router.post('/logout',auth,authController.logout);
 
 // refresh
 router.get('/refresh',authController.refresh);     
 
 //##################### Blog ################################
 
-router.post('/blog',blogController.create);
+router.post('/blog',auth,blogController.create);
 
 // get all
-router.get('/blog/all', blogController.getAll);
+router.get('/blog/all',auth, blogController.getAll);
 
 // get blog by id
-router.get('/blog/:id', blogController.getById);
+router.get('/blog/:id',auth, blogController.getById);
 
 // update
-router.put('/blog', blogController.update);
+router.put('/blog',auth, blogController.update);
 
 // delete
-router.delete('/blog/:id', blogController.delete);
-
-module.exports=router;
+router.delete('/blog/:id',auth, blogController.delete);
 
 
 //##################### Blog ################################
 
 
-router.post('/comment',commentController.create);
+
+router.post('/comment',auth,commentController.create);
 
 // get comment by id
-router.get('/comment/:id', commentController.getCommentsByBlogId);
+router.get('/comment/:id',auth, commentController.getCommentsByBlogId);
 
 module.exports=router;
 

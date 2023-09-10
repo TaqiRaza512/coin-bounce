@@ -63,13 +63,13 @@ const blogController={
     async getAll(req,res,next){
         try{
             const AllBlogs=await blog.find({});
-            const AllblogsTDO=[];
+            const AllblogsDTO=[];
             for (let i=0;i<AllBlogs.length;i++)
             {
                 const dto=new blogDTO(AllBlogs[i]);
-                AllblogsTDO.push(dto);
+                AllblogsDTO.push(dto);
             }
-            return res.status(200).json({AllblogsTDO});
+            return res.status(200).json({blogs: AllblogsDTO});
         }
         catch(err){
             return next(err);
@@ -149,6 +149,7 @@ const blogController={
             {
                 return next(err);
             }
+            
         }
         else
         {

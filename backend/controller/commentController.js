@@ -67,13 +67,14 @@ const commentController={
         {
             AllCommentsDTO.push(new CommentDTO(Comments[i]));
         }
+
         // const CommentByIdDTO=new blogDetailsDTO(CommentById);
+        
         return res.status(200).json({Comments: AllCommentsDTO});
     },
     async getAll(req,res,next){},
     async update(req,res,next){},
     async delete(req,res,next){},
-
 }
 
 module.exports = commentController;

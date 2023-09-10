@@ -7,6 +7,7 @@ class BlogDetailsDTO
         this.title=blog.title;
         this.photo=blog.photoPath;
         this.authorName=blog.author.name;
+        this.createdAt=blog.createdAt;
         this.authorUsername=blog.author.username;
     }
 }

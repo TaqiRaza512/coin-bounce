@@ -7,18 +7,18 @@ const JWTService=require('../services/JWTService');
 const RefreshToken=require('../models/token');
 
 const authController = {
+
     async login(req,res,next) 
     {
+        console.log("In the backend");
         const {username,password}=req.body;
         let user;
-
         try{
             // match username
             user=await User.findOne({username:username}); 
             if(!user)
             {
                 console.log("User not found");
-
                 const error={
                     status: 401,
                     message: 'Invalid username'
@@ -80,7 +80,6 @@ const authController = {
             confirmPassword: Joi.ref('password')
         });
         const{error}=userRegisterSchema.validate(req.body);
-
         if(error){
             return next(error);
         }
@@ -91,6 +90,7 @@ const authController = {
             if(emailInUse)
             {
                 const error={
+
                     status: 409,
                     message: 'Email already exists'
                 }
@@ -136,6 +136,7 @@ const authController = {
         res.cookie('accessToken',accessToken,{
             maxAge: 1000*60*60*24,
             httpOnly:true
+
         });
         res.cookie('refreshToken',refreshToken,{
             maxAge: 1000*60*60*24,
@@ -214,7 +215,6 @@ const authController = {
         catch(e){
             return next(e);
         }
-
         const user = await User.findOne({_id:id});
         const userDto =  new userDTO(user);
         return res.status(200).json({user:userDto,auth:true});
