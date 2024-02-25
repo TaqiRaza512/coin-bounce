@@ -11,8 +11,7 @@ const cors = require('cors');
 
 const corsOptions={
   credentials: true,
-  origin: ['https://coin-bounce-1.vercel.app'],
-  methods:["POST","GET"]
+  origin: ['http://localhost:3000']
 }
 // Serve static files from a specific directory
 app.use('/storage', express.static('./storage'));
