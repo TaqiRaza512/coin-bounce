@@ -11,7 +11,7 @@ const cors = require('cors');
 
 const corsOptions={
   credentials: true,
-  origin: ['https://coin-bounce.vercel.app'],
+  origin: ['https://coin-bounce-1.vercel.app'],
   methods:["POST","GET"]
 }
 // Serve static files from a specific directory
