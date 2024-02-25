@@ -1,4 +1,5 @@
 # Coin Bounce
+![Uploading image.png…]()
 
 ## Introduction
 Coin Bounce is a modern, interactive web application focused on providing insights and trends in the world of coins. It's a one-stop destination for enthusiasts and investors to stay updated with the latest developments in the coin market.
